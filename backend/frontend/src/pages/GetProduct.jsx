@@ -4,7 +4,7 @@ import "../styles/GetProduct.css"; // Import the CSS here
 
 const GetProduct = () => {
   const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const [searchQuery, setSearchQuery] = useState(""); // State for search quer
 
   useEffect(() => {
     const fetchProducts = async () => {
