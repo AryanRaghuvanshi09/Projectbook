@@ -16,7 +16,7 @@ const ProductSalesPage = () => {
 
   const fetchSalesData = async () => {
     try {
-      const response = await API.get("/products");
+      const response = await API.get("/sales/products");
       setSalesData(response.data.sales || []);
       setLoading(false);
     } catch (error) {
