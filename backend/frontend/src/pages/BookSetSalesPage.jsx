@@ -31,7 +31,7 @@ const BookSetSalesPage = () => {
 
   const fetchSalesData = async () => {
     try {
-      const bookSetsResponse = await API.get("/book-sets", {
+      const bookSetsResponse = await API.get("/sales/book-sets", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
