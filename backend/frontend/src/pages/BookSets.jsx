@@ -48,10 +48,11 @@ const BookSets = () => {
         />
       </div>
 
+      {/* Book Sets List */}
       {filteredBookSets.length > 0 ? (
-        <ul className="book-set-list">
+        <div className="book-set-grid">
           {filteredBookSets.map((set) => (
-            <li key={set._id} className="book-set-item">
+            <div key={set._id} className="book-set-card">
               <div className="set-info">
                 {/* Display school name as clickable */}
                 <h3
@@ -63,27 +64,57 @@ const BookSets = () => {
 
                 {/* Show detailed info only if the school is selected */}
                 {selectedSchool === set._id && (
-                  <>
-                    <p><strong>Total Set Price:</strong> Rs. {set.setPrice}</p>
-                    <p><strong>Total Quantity:</strong> {set.totalQuantity}</p>
+                  <div className="details">
+                    <div className="set-price">
+                      <p>
+                        <strong>Total Set Price:</strong> Rs. {set.setPrice}
+                      </p>
+                      <p>
+                        <strong>Total Quantity:</strong> {set.totalQuantity}
+                      </p>
+                    </div>
                     <div className="books-details">
                       <h4>Books in Set:</h4>
                       <ul className="books-list">
                         {set.books.map((book, index) => (
                           <li key={index} className="book-item">
-                            <p><strong>Book Name:</strong> {book.name}</p>
-                            <p><strong>Price:</strong> Rs. {book.price}</p>
-                            <p><strong>Quantity:</strong> {book.quantity}</p>
+                            <p>
+                              <strong>Book Name:</strong> {book.name}
+                            </p>
+                            <p>
+                              <strong>Price:</strong> Rs. {book.price}
+                            </p>
+                            <p>
+                              <strong>Quantity:</strong> {book.quantity}
+                            </p>
                           </li>
                         ))}
                       </ul>
                     </div>
-                  </>
+                    <div className="copies-details">
+                      <h4>Copies in Set:</h4>
+                      <ul className="copies-list">
+                        {set.copies.map((copy, index) => (
+                          <li key={index} className="copy-item">
+                            <p>
+                              <strong>Copy Name:</strong> {copy.name}
+                            </p>
+                            <p>
+                              <strong>Price:</strong> Rs. {copy.price}
+                            </p>
+                            <p>
+                              <strong>Stock:</strong> {copy.stock}
+                            </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
                 )}
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <p>No book sets found...</p>
       )}
